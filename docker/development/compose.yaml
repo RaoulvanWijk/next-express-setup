@@ -1,8 +1,8 @@
 services:
   frontend:
     build:
-      context: ../../
-      dockerfile: frontend/Dockerfile.dev
+      context: ../../frontend
+      dockerfile: Dockerfile.dev
     image: frontend:latest
     ports:
       - "3000:3000"
