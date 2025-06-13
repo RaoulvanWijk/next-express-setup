@@ -1,0 +1,8 @@
+services:
+  frontend:
+    build:
+      context: ../../
+      dockerfile: frontend/Dockerfile.prod
+    image: frontend:latest
+    ports:
+      - "3003:3000"
