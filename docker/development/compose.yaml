@@ -6,6 +6,9 @@ services:
     image: frontend:latest
     ports:
       - "3000:3000"
+    volumes:
+      - ../../frontend:/app
+      - ./env:/app/.env
   backend:
     build:
       context: ../../backend
@@ -13,4 +16,17 @@ services:
     image: backend:latest
     ports:
       - "8000:8000"
+    volumes:
+      - ../../backend:/app
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ../../nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
     
