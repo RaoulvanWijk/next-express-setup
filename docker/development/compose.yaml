@@ -6,3 +6,11 @@ services:
     image: frontend:latest
     ports:
       - "3000:3000"
+  backend:
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile.dev
+    image: backend:latest
+    ports:
+      - "8000:8000"
+    
